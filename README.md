@@ -7,4 +7,4 @@ Guillermo Torres: guille.torres@gmail.com
 Cristina Maldonado: cmmsmcgma@gmail.com
 
 ## Week 1. Papers summary
-https://docs.google.com/document/d/1XhrJ-miMItR-QutFAmah2oh79yF-8ZcTuVCvWArW3wA/edit#
+https://docs.google.com/document/d/1XhrJ-miMItR-QutFAmah2oh79yF-8ZcTuVCvWArW3wA/edit?usp=sharing
