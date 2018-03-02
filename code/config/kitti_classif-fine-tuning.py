@@ -1,19 +1,19 @@
 # Dataset
 problem_type                 = 'classification'# ['classification' | 'detection' | 'segmentation']
-dataset_name                 = 'TT100K_trafficSigns'# Dataset name
+dataset_name                 = 'KITTI'         # Dataset name
 dataset_name2                = None            # Second dataset name. None if not Domain Adaptation
 perc_mb2                     = None            # Percentage of data from the second dataset in each minibatch
 
 # Model
 model_name                   = 'vgg16'          # Model to use ['fcn8' | 'lenet' | 'alexNet' | 'vgg16' |  'vgg19' | 'resnet50' | 'InceptionV3']
-freeze_layers_from           = None            # Freeze layers from 0 to this layer during training (Useful for finetunning) [None | 'base_model' | Layer_id]
-show_model                   = False           # Show the architecture layers
+freeze_layers_from           = 20         # Freeze layers from 0 to this layer during training (Useful for finetunning) [None | 'base_model' | Layer_id]
+show_model                   = True           # Show the architecture layers
 load_imageNet                = False           # Load Imagenet weights and normalize following imagenet procedure
-load_pretrained              = False           # Load a pretrained model for doing finetuning
+load_pretrained              = True            # Load a pretrained model for doing finetuning
 weights_file                 = 'weights.hdf5'  # Training weight file name
 
 # Parameters
-train_model                  = False            # Train the model
+train_model                  = True            # Train the model
 test_model                   = True           # Test the model
 pred_model                   = False           # Predict using the model
 
@@ -25,15 +25,15 @@ debug_images_test            = 50              # N images for testing in debug m
 debug_n_epochs               = 2               # N of training epochs in debug mode
 
 # Batch sizes
-batch_size_train             = 8               # Batch size during training
+batch_size_train             = 8              # Batch size during training
 batch_size_valid             = 30              # Batch size during validation
 batch_size_test              = 30              # Batch size during testing
-crop_size_train              = (224, 224)      # Crop size during training (Height, Width) or None
-crop_size_valid              = (224, 224)      # Crop size during validation
-crop_size_test               = (224, 224)      # Crop size during testing
-resize_train                 = (324, 324)      # Resize the image during training (Height, Width) or None
-resize_valid                 = (324, 324)      # Resize the image during validation
-resize_test                  = (324, 324)      # Resize the image during testing
+crop_size_train              = None            # Crop size during training (Height, Width) or None
+crop_size_valid              = None            # Crop size during validation
+crop_size_test               = None            # Crop size during testing
+resize_train                 = (224, 224)      # Resize the image during training (Height, Width) or None
+resize_valid                 = (224, 224)      # Resize the image during validation
+resize_test                  = (224, 224)      # Resize the image during testing
 
 # Data shuffle
 shuffle_train                = True            # Whether to shuffle the training data

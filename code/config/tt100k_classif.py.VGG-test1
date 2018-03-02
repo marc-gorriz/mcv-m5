@@ -25,15 +25,15 @@ debug_images_test            = 50              # N images for testing in debug m
 debug_n_epochs               = 2               # N of training epochs in debug mode
 
 # Batch sizes
-batch_size_train             = 8               # Batch size during training
+batch_size_train             = 8              # Batch size during training
 batch_size_valid             = 30              # Batch size during validation
 batch_size_test              = 30              # Batch size during testing
-crop_size_train              = (224, 224)      # Crop size during training (Height, Width) or None
-crop_size_valid              = (224, 224)      # Crop size during validation
-crop_size_test               = (224, 224)      # Crop size during testing
-resize_train                 = (324, 324)      # Resize the image during training (Height, Width) or None
-resize_valid                 = (324, 324)      # Resize the image during validation
-resize_test                  = (324, 324)      # Resize the image during testing
+crop_size_train              = None            # Crop size during training (Height, Width) or None
+crop_size_valid              = None            # Crop size during validation
+crop_size_test               = None            # Crop size during testing
+resize_train                 = (224, 224)      # Resize the image during training (Height, Width) or None
+resize_valid                 = (224, 224)      # Resize the image during validation
+resize_test                  = (224, 224)      # Resize the image during testing
 
 # Data shuffle
 shuffle_train                = True            # Whether to shuffle the training data
@@ -59,7 +59,7 @@ save_results_n_legend_rows   = 1               # Number of rows when showwing th
 earlyStopping_enabled        = True            # Enable the Callback
 earlyStopping_monitor        = 'acc'           # Metric to monitor
 earlyStopping_mode           = 'max'           # Mode ['max' | 'min']
-earlyStopping_patience       = 10              # Max patience for the early stopping
+earlyStopping_patience       = 100             # Max patience for the early stopping
 earlyStopping_verbose        = 0               # Verbosity of the early stopping
 
 # Callback model check point
