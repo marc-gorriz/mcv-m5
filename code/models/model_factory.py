@@ -6,20 +6,20 @@ from keras import backend as K
 from keras.utils.vis_utils import plot_model
 
 # Classification models
-#from models.lenet import build_lenet
-#from models.alexNet import build_alexNet
+# from models.lenet import build_lenet
+# from models.alexNet import build_alexNet
 from models.vgg import build_vgg
-#from models.resnet import build_resnet50
-#from models.inceptionV3 import build_inceptionV3
+from models.resnet import build_resnet50
+# from models.inceptionV3 import build_inceptionV3
 
 # Detection models
 from models.yolo import build_yolo
 
 # Segmentation models
-#from models.fcn8 import build_fcn8
+# from models.fcn8 import build_fcn8
 
 # Adversarial models
-#from models.adversarial_semseg import Adversarial_Semseg
+# from models.adversarial_semseg import Adversarial_Semseg
 
 from models.model import One_Net_Model
 
@@ -49,7 +49,8 @@ class Model_Factory():
                         cf.target_size_train[1])
             # TODO detection : check model, different detection nets may have different losses and metrics
             loss = YOLOLoss(in_shape, cf.dataset.n_classes, cf.dataset.priors)
-            metrics = [YOLOMetrics(in_shape, cf.dataset.n_classes, cf.dataset.priors,name='avg_recall'),YOLOMetrics(in_shape, cf.dataset.n_classes, cf.dataset.priors,name='avg_iou')]
+            metrics = [YOLOMetrics(in_shape, cf.dataset.n_classes, cf.dataset.priors, name='avg_recall'),
+                       YOLOMetrics(in_shape, cf.dataset.n_classes, cf.dataset.priors, name='avg_iou')]
         elif cf.dataset.class_mode == 'segmentation':
             if K.image_dim_ordering() == 'th':
                 if variable_input_size:
@@ -95,7 +96,7 @@ class Model_Factory():
             raise ValueError('Unknown model name')
 
         # Output the model
-        print ('   Model: ' + cf.model_name)
+        print('   Model: ' + cf.model_name)
         return model
 
     # Creates, compiles, plots and prints a Keras model. Optionally also loads its
@@ -174,7 +175,7 @@ class Model_Factory():
             plot_model(model, to_file=os.path.join(cf.savepath, 'model.png'))
 
         # Output the model
-        print ('   Model: ' + cf.model_name)
+        print('   Model: ' + cf.model_name)
         # model is a keras model, Model is a class wrapper so that we can have
         # other models (like GANs) made of a pair of keras models, with their
         # own ways to train, test and predict
