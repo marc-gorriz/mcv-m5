@@ -6,20 +6,20 @@ from keras import backend as K
 from keras.utils.vis_utils import plot_model
 
 # Classification models
-#from models.lenet import build_lenet
-#from models.alexNet import build_alexNet
+# from models.lenet import build_lenet
+# from models.alexNet import build_alexNet
 from models.vgg import build_vgg
-#from models.resnet import build_resnet50
-#from models.inceptionV3 import build_inceptionV3
+# from models.resnet import build_resnet50
+# from models.inceptionV3 import build_inceptionV3
 
 # Detection models
 from models.yolo import build_yolo
 
 # Segmentation models
 from models.fcn8 import build_fcn8
-
+from models.segnet import build_segnet
 # Adversarial models
-#from models.adversarial_semseg import Adversarial_Semseg
+# from models.adversarial_semseg import Adversarial_Semseg
 
 from models.model import One_Net_Model
 
@@ -49,7 +49,8 @@ class Model_Factory():
                         cf.target_size_train[1])
             # TODO detection : check model, different detection nets may have different losses and metrics
             loss = YOLOLoss(in_shape, cf.dataset.n_classes, cf.dataset.priors)
-            metrics = [YOLOMetrics(in_shape, cf.dataset.n_classes, cf.dataset.priors,name='avg_recall'),YOLOMetrics(in_shape, cf.dataset.n_classes, cf.dataset.priors,name='avg_iou')]
+            metrics = [YOLOMetrics(in_shape, cf.dataset.n_classes, cf.dataset.priors, name='avg_recall'),
+                       YOLOMetrics(in_shape, cf.dataset.n_classes, cf.dataset.priors, name='avg_iou')]
         elif cf.dataset.class_mode == 'segmentation':
             if K.image_dim_ordering() == 'th':
                 if variable_input_size:
@@ -65,10 +66,10 @@ class Model_Factory():
                     in_shape = (cf.target_size_train[0],
                                 cf.target_size_train[1],
                                 cf.dataset.n_channels)
-            #loss = cce_flatt(cf.dataset.void_class, cf.dataset.cb_weights)
-            #metrics = [IoU(cf.dataset.n_classes, cf.dataset.void_class)]
-            loss='categorical_crossentropy'
-            metrics=['accuracy',jaccard_coef]
+            # loss = cce_flatt(cf.dataset.void_class, cf.dataset.cb_weights)
+            # metrics = [IoU(cf.dataset.n_classes, cf.dataset.void_class)]
+            loss = 'categorical_crossentropy'
+            metrics = ['accuracy', jaccard_coef]
         else:
             raise ValueError('Unknown problem type')
         return in_shape, loss, metrics
