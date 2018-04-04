@@ -16,7 +16,7 @@ https://docs.google.com/document/d/1XhrJ-miMItR-QutFAmah2oh79yF-8ZcTuVCvWArW3wA/
 [Papers summary] https://docs.google.com/document/d/12maxYY3KeSGApBNSU2snr96GLQruL1Oc3WinARCrlyU/edit#
 
 ## Week 5 & 6. Object Detection
-[Google Slides] https://drive.google.com/open?id=1n5rIFwJdzxU00LU0lKR5s7jVsHEmrt4mvAi9catm6jM
+[Google Slides] https://docs.google.com/presentation/d/1n5rIFwJdzxU00LU0lKR5s7jVsHEmrt4mvAi9catm6jM/edit?usp=sharing
 
 ## Overleaf Report Document
 https://www.overleaf.com/14257249hjmvyjcjqmgy#/54989814/
